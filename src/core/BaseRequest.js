@@ -1,5 +1,5 @@
 const axios = require('axios');
-const apiURL = 'http://localhost/api';
+const apiURL = 'http://34.126.150.58:8000/api';
 export default {
   getHeaders() {
     let token = window.localStorage.getItem('token');

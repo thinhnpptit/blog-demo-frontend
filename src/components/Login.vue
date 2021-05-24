@@ -38,7 +38,7 @@ export default {
   methods: {
     login: function(){
       this.loading = true;
-      axios.post('http://localhost/api/login', this.user)
+      axios.post('http://34.126.150.58:8000/api/login', this.user)
       .then(response => {
         window.localStorage.setItem('token', response.data.token);
         this.$router.push({name: 'dashboard'});
