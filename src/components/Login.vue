@@ -1,15 +1,15 @@
 <template>
   <div class="container">
     <div class="row">
-    <form class="col-4 mx-auto bordered mt-5" @submit.prevent='login' >
+    <form class="col-4 mx-auto bordered mt-5" @submit.prevent="login()" >
       <h2>Login</h2>
       <div class="form-group mt-2">
         <label for="email">Email address</label>
         <input v-model="user.email" type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" 
-          :class="{'is-invalid': errors.email}">
-          <div class="invalid-feedback" >
-            {{ errors.email }}
-          </div>
+        :class="{'is-invalid': errors.email}">
+        <div class="invalid-feedback" >
+          {{ errors.email }}
+        </div>
       </div>
       <div class="form-group mt-2">
         <label for="password">Password</label>
@@ -23,7 +23,8 @@
 </template>
 
 <script>
-const axios = require('axios');
+import BaseRequest from '../core/BaseRequest';
+// const axios = require('axios');
 export default {
   data(){
     return {
@@ -38,7 +39,7 @@ export default {
   methods: {
     login: function(){
       this.loading = true;
-      axios.post('http://34.126.150.58:8000/api/login', this.user)
+      BaseRequest.post('/login', this.user)
       .then(response => {
         window.localStorage.setItem('token', response.data.token);
         this.$router.push({name: 'dashboard'});
