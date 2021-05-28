@@ -16,7 +16,11 @@ const routes = [
   { path: '/', component: HomePage, name: 'homepage' },
   { path: '/login', component: Login, name: 'login' },
   { path: '/register', component: Register },
-  { path: '/dashboard', component: Dashboard, name: 'dashboard' }
+  { path: '/dashboard', component: Dashboard, name: 'dashboard' },
+  {
+    // will match everything
+    path: '*'
+  }
 ]
 
 const router = new VueRouter({

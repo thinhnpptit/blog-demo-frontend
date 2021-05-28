@@ -36,6 +36,9 @@ export default {
       loading: false
     }
   },
+  mounted() {
+    this.login();
+  },
   methods: {
     login: function(){
       this.loading = true;
